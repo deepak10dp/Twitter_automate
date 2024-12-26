@@ -50,15 +50,15 @@ http://localhost:5000
 ## Screenshots
 
 ### Web Interface
-![Web Interface](screenshots/web_interface.png)
+![Web Interface](screenshots/screenshots/web_interface.png)
 *The main web interface showing the scraper control and results display.*
 
 ### Trending Topics
-![Trending Topics](screenshots/trending_topics.png)
+![Trending Topics](screenshots/screenshots/trending_topics.png)
 *Example of scraped trending topics from Twitter.*
 
 ### MongoDB Data
-![MongoDB Data](screenshots/mongodb_data.png)
+![MongoDB Data](screenshots/screenshots/mongodb_data.png)
 *Stored data in MongoDB showing the trend records.*
 
 ## Project Structure
