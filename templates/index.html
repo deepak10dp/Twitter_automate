@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Trends Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1DA1F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none;
+        }
+        .trend {
+            margin: 10px 0;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Twitter Trends Scraper</h1>
+    <a href="#" class="button" onclick="runScraper(); return false;">Click here to run the script</a>
+    
+    <div id="results" class="results">
+        <h2>Results</h2>
+        <div id="datetime"></div>
+        <div id="trends"></div>
+        <div id="ip"></div>
+        <h3>JSON Extract:</h3>
+        <pre id="json"></pre>
+        
+        <a href="#" class="button" onclick="runScraper(); return false;">Click here to run the query again</a>
+    </div>
+
+    <script>
+        function runScraper() {
+            fetch('/run-scraper')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('results').style.display = 'block';
+                    document.getElementById('datetime').textContent = `These are the most happening topics as on ${data.datetime}`;
+                    
+                    let trendsHtml = '';
+                    for (let i = 1; i <= 5; i++) {
+                        trendsHtml += `<div class="trend">- ${data['nameoftrend' + i]}</div>`;
+                    }
+                    document.getElementById('trends').innerHTML = trendsHtml;
+                    
+                    document.getElementById('ip').textContent = `The IP address used for this query was ${data.ip_address}`;
+                    document.getElementById('json').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    alert('Error running scraper: ' + error);
+                });
+        }
+    </script>
+</body>
+</html>
