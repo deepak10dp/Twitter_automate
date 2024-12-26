@@ -47,6 +47,20 @@ http://localhost:5000
 - Displays results in a clean web interface
 - Shows JSON data extract
 
+## Screenshots
+
+### Web Interface
+![Web Interface](screenshots/web_interface.png)
+*The main web interface showing the scraper control and results display.*
+
+### Trending Topics
+![Trending Topics](screenshots/trending_topics.png)
+*Example of scraped trending topics from Twitter.*
+
+### MongoDB Data
+![MongoDB Data](screenshots/mongodb_data.png)
+*Stored data in MongoDB showing the trend records.*
+
 ## Project Structure
 
 - `app.py`: Flask web application

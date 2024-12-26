@@ -1,0 +1,23 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+
+# Debug files
+*.log
+error_screenshot.png
+debug_screenshot.png
+
+# IDE
+.vscode/
+.idea/
+
+# MongoDB
+data/
